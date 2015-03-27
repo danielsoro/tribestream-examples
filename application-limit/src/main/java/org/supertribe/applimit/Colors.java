@@ -7,7 +7,7 @@
  * of its trade secrets, irrespective of what has been deposited with the
  * U.S. Copyright Office.
  */
-package org.supertribe.signatures;
+package org.supertribe.applimit;
 
 import com.tomitribe.tribestream.governance.api.ApplicationLimit;
 import com.tomitribe.tribestream.governance.api.Concurrent;

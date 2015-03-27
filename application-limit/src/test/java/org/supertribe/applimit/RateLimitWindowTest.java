@@ -7,7 +7,7 @@
  * of its trade secrets, irrespective of what has been deposited with the
  * U.S. Copyright Office.
  */
-package org.supertribe.signatures;
+package org.supertribe.applimit;
 
 import org.apache.cxf.jaxrs.client.WebClient;
 import org.apache.ziplock.maven.Mvn;

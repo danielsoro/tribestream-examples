@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.supertribe.signatures;
+package org.supertribe.applimit;
 
 import org.apache.cxf.jaxrs.client.WebClient;
 import org.apache.ziplock.maven.Mvn;
