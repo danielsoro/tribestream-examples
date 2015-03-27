@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Tomitribe Confidential
+  ~
+  ~ Copyright Tomitribe Corporation. 2015
+  ~
+  ~ The source code for this program is not published or otherwise divested
+  ~ of its trade secrets, irrespective of what has been deposited with the
+  ~ U.S. Copyright Office.
+  -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.tomitribe.tribestream.examples</groupId>
+  <artifactId>examples-parent</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Tribestream Examples</name>
+  <modules>
+    <module>date-header-freshness</module>
+	<module>http-signatures-hmac</module>
+	<module>http-signatures-keystore-cipher</module>
+	<module>http-signatures-username-retriever</module>
+  </modules>
+</project>
