@@ -58,7 +58,8 @@ public class ColorsTest {
     public static WebArchive war() throws Exception {
         return new Mvn.Builder()
                 .name("colors.war")
-                .build(WebArchive.class);
+                .build(WebArchive.class)
+                .addClass(KeystoreInitializer.class);
     }
 
     @ArquillianResource
@@ -90,7 +91,7 @@ public class ColorsTest {
                 .header("Date", new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.US).format(oneHourAgo))
                 .get();
 
-        assertEquals(410, actual.getStatus());
+        assertEquals(412, actual.getStatus());
     }
 
     @Test
