@@ -15,6 +15,6 @@ import com.tomitribe.tribestream.security.signatures.SignatureUsernameRetriever;
 public class SimpleUserNameRetriever implements SignatureUsernameRetriever {
     @Override
     public String getUsername(final Signature signature) {
-        return "support";
+        return "user";
     }
 }

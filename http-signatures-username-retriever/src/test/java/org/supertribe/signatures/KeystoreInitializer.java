@@ -16,7 +16,7 @@ public class KeystoreInitializer {
     public static final String SECRET = "this is supposed to be the shared secret between client and server. " +
             "Not supposed to be in a constant.";
 
-    public static final String KEY_ALIAS = "key-id";
+    public static final String KEY_ALIAS = "support";
     private static final String PWD = "this is sensible ;-)";
     public static final String ALGO = "HmacSHA256";
     private static File KS;

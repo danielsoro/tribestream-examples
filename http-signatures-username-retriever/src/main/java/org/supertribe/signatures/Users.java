@@ -9,20 +9,25 @@
  */
 package org.supertribe.signatures;
 
+import javax.annotation.Resource;
 import javax.ejb.Lock;
 import javax.ejb.LockType;
+import javax.ejb.SessionContext;
 import javax.ejb.Singleton;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
-@Path("colors")
+@Path("users")
 @Singleton
 @Lock(LockType.READ)
-public class Colors {
+public class Users {
+
+    @Resource
+    private SessionContext context;
 
     @GET
-    @Path("preferred")
-    public String preferred() {
-        return "orange";
+    @Path("whoami")
+    public String whoami() {
+        return context.getCallerPrincipal().getName();
     }
 }
