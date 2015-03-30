@@ -1,5 +1,0 @@
-<tomee>
-  <Service id="SignaturesService" class-name="com.tomitribe.tribestream.security.signatures.service.SignaturesService">
-    <!-- Let it be with the default configuration -->
-  </Service>
-</tomee>
