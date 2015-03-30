@@ -34,6 +34,12 @@ import static org.junit.Assert.assertEquals;
 @RunWith(Arquillian.class)
 public class ColorsTest {
 
+    /**
+     * Build the web archive to test. This adds in the KeystoreInitializer class from the test sources,
+     * which would otherwise be excluded.
+     * @return The archive to deploy for the test
+     * @throws Exception
+     */
     @Deployment(testable = false)
     public static WebArchive war() throws Exception {
         return new Mvn.Builder()
@@ -42,9 +48,17 @@ public class ColorsTest {
                 .addClass(KeystoreInitializer.class);
     }
 
+    /**
+     * Arquillian will boot an instance of Tribestream with a random port. The URL with the random port is injected
+     * into this field.
+     */
     @ArquillianResource
     private URL webapp;
 
+    /**
+     * Tests accessing a signatures protected method with a GET request
+     * @throws Exception when test fails or an error occurs
+     */
     @Test
     public void success() throws Exception {
 
@@ -57,6 +71,10 @@ public class ColorsTest {
         assertEquals("orange", actual);
     }
 
+    /**
+     * Tests accessing a signatures protected method with a POST request
+     * @throws Exception when test fails or an error occurs
+     */
     @Test
     public void successPost() throws Exception {
         final String actual = WebClient.create(webapp.toExternalForm())
@@ -68,6 +86,10 @@ public class ColorsTest {
         assertEquals("Hello", actual);
     }
 
+    /**
+     * Tests accessing a signatures protected method with a PUT request
+     * @throws Exception when test fails or an error occurs
+     */
     @Test
     public void successPut() throws Exception {
         final String actual = WebClient.create(webapp.toExternalForm())
@@ -79,6 +101,10 @@ public class ColorsTest {
         assertEquals("World", actual);
     }
 
+    /**
+     * Tests accessing a signatures protected method with a key that doesn't not have access to the resource
+     * @throws Exception when test fails or an error occurs
+     */
     @Test
     public void fail() throws Exception {
         final Response response = WebClient.create(webapp.toExternalForm())
@@ -89,6 +115,10 @@ public class ColorsTest {
         assertEquals(403, response.getStatus());
     }
 
+    /**
+     * Tests accessing a signatures protected method with a GET request to a resource that requires a role
+     * @throws Exception when test fails or an error occurs
+     */
     @Test
     public void authorized() throws Exception {
         final Response response = WebClient.create(webapp.toExternalForm())
@@ -99,6 +129,15 @@ public class ColorsTest {
         assertEquals("you rock guys", IO.slurp(InputStream.class.cast(response.getEntity())));
     }
 
+    /**
+     * Create a digital signature using the HTTP method and request URI. This uses the shared secret constant
+     * from the KeystoreInitializer
+     *
+     * @param method HTTP method for the request (e.g. GET, POST, PUT etc)
+     * @param uri The URI of the request, e.g. "/colors/api/colors/preferred"
+     * @return The signature to set on the Authorization header.
+     * @throws Exception
+     */
     private Signature sign(final String method, final String uri) throws Exception {
         final Signature signature = new Signature(KeystoreInitializer.KEY_ALIAS, "hmac-sha256", null, "(request-target)");
 
