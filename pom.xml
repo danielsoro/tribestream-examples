@@ -21,5 +21,10 @@
     <module>date-header-freshness</module>
     <module>http-signatures-hmac</module>
     <module>http-signatures-username-retriever</module>
+	<module>application-limit</module>
+	<module>user-limit</module>
+	<module>schedule-limit</module>
+	<module>digest-enforcer</module>
+	<module>jaas-config</module>
   </modules>
 </project>
