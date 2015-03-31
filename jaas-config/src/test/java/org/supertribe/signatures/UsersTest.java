@@ -46,6 +46,10 @@ public class UsersTest {
     @ArquillianResource
     private URL webapp;
 
+    /**
+     * Test logging in and calling the service as an LDAP user
+     * @throws Exception when an error occurs or the test fails
+     */
     @Test
     public void successJBloggs() throws Exception {
          final String actual = WebClient.create(webapp.toExternalForm(), "jbloggs", "test", null)
@@ -56,6 +60,10 @@ public class UsersTest {
         assertEquals("jbloggs", actual);
     }
 
+    /**
+     * Test logging in with an LDAP user with the wrong password. This should return a 401.
+     * @throws Exception when an error occurs or the test fails
+     */
     @Test
     public void failJBloggs() throws Exception {
          final Response response = WebClient.create(webapp.toExternalForm(), "jbloggs", "badpassword", null)
@@ -66,6 +74,10 @@ public class UsersTest {
         assertEquals(401, response.getStatus());
     }
 
+    /**
+     * Test logging in and calling the service as a Tomcat user
+     * @throws Exception when an error occurs or the test fails
+     */
     @Test
     public void successSupport() throws Exception {
          final String actual = WebClient.create(webapp.toExternalForm(), "support", "support", null)
@@ -76,6 +88,10 @@ public class UsersTest {
         assertEquals("support", actual);
     }
 
+    /**
+     * Test logging in with a Tomcat user with the wrong password. This should return a 401.
+     * @throws Exception when an error occurs or the test fails
+     */
     @Test
     public void failSupport() throws Exception {
          final Response response = WebClient.create(webapp.toExternalForm(), "support", "badpassword", null)
