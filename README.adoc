@@ -11,20 +11,20 @@ Please see the README for each example for more details.
 
 |====
 | Project | Description
-| link:http-signatures-hmac/README.adoc{outfilesuffix}[HTTP Signatures HMAC]
+| link:http-signatures-hmac/README{outfilesuffix}[HTTP Signatures HMAC]
 | Some examples to demonstrate signing HTTP messages for authentication and verifying message integrity
-| link:date-header-freshness/README.adoc{outfilesuffix}[Date Header Freshness]
+| link:date-header-freshness/README{outfilesuffix}[Date Header Freshness]
 | Demonstrates checking the validity of the date on the HTTP request
-| link:http-signatures-username-retriever/README.adoc{outfilesuffix}[HTTP Signatures Username Retriever]
+| link:http-signatures-username-retriever/README{outfilesuffix}[HTTP Signatures Username Retriever]
 | Shows how to override the username retrieved from the signature used for authentication
-| link:digest-enforcer/README.adoc{outfilesuffix}[Digest enforcer]
+| link:digest-enforcer/README{outfilesuffix}[Digest enforcer]
 | Demonstrates the Digest and Want-Digest headers for checking requests/responses
-| link:application-limit/README.adoc{outfilesuffix}[Application Limit]
+| link:application-limit/README{outfilesuffix}[Application Limit]
 | Applying an application-wide rate and concurrency limit to a resource
-| link:user-limit/README.adoc{outfilesuffix}[User Limit]
+| link:user-limit/README{outfilesuffix}[User Limit]
 | Applying an per-user rate and concurrency limit to a resource
-| link:schedule-limit/README.adoc{outfilesuffix}[Schedule Limit]
+| link:schedule-limit/README{outfilesuffix}[Schedule Limit]
 | Demonstrates rate and concurrency limiting on a resource invoked by a timer
-| link:jaas-config/README.adoc{outfilesuffix}[JAAS Config]
+| link:jaas-config/README{outfilesuffix}[JAAS Config]
 | Shows how to configure JAAS for LDAP and tomcat-users.xml
 |====
