@@ -21,9 +21,12 @@ import javax.ejb.Singleton;
 import javax.ejb.Timeout;
 import javax.ejb.Timer;
 import javax.ejb.TimerService;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
 import java.util.Collection;
 import java.util.concurrent.atomic.AtomicInteger;
 
+@Path("concurrency")
 @Singleton
 @Lock(LockType.READ)
 public class WorkConcurrencyLimit {
@@ -42,6 +45,8 @@ public class WorkConcurrencyLimit {
     /**
      * Starts the timer. The timer calls the @Timeout method every 500 ms.
      */
+    @GET
+    @Path("start")
     public void start() {
         timerCount.set(0);
         timerService.createTimer(500, 500, "testtimer");
@@ -51,6 +56,8 @@ public class WorkConcurrencyLimit {
      * Stops the timer and returns the number of times the @Timeout method was called
      * @return the number of times the @Timeout method was called
      */
+    @GET
+    @Path("stop")
     public int stop() {
         final Collection<Timer> timers = timerService.getTimers();
         for (Timer timer : timers) {
