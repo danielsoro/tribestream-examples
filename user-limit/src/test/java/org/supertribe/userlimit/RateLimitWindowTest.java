@@ -32,6 +32,7 @@ public class RateLimitWindowTest {
 
     /**
      * Builds the .war file for Arquillian to deploy to Tribestream to test
+     *
      * @return A .war file build in the same way as if a Maven build had been run on the project.
      * @throws Exception if an error occurs building or deploying the .war archive
      */
@@ -53,14 +54,12 @@ public class RateLimitWindowTest {
      * Calls the /api/colors/preferred endpoint, and checks the HTTP status code and (optionally) response body match the
      * expected response code and string.
      *
-     * @param username Username to use for basic auth
-     *
-     * @param password Password to use for basic auth
-     *
+     * @param username           Username to use for basic auth
+     * @param password           Password to use for basic auth
      * @param expectedStatusCode The status code that the endpoint is expected to return. Typically this will be 200 (OK)
      *                           for calls within the limit, and 429 (limit exceeded) once the limit has been exceeded.
-     * @param expectedBody The expected response body. This can be null. If null is specified, the response body is not
-     *                     checked.
+     * @param expectedBody       The expected response body. This can be null. If null is specified, the response body is not
+     *                           checked.
      * @throws Exception when an error occurs
      */
     private void call(final String username, final String password, final int expectedStatusCode, final String expectedBody) throws Exception {

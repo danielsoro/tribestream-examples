@@ -14,7 +14,7 @@ import org.jboss.arquillian.core.spi.LoadableExtension;
 public class LdapServerExtension implements LoadableExtension {
 
     @Override
-    public void register(ExtensionBuilder builder) {
+    public void register(final ExtensionBuilder builder) {
         builder.observer(LdapServerLifecycleExecuter.class);
     }
 

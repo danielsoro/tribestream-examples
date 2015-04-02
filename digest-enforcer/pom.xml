@@ -17,6 +17,7 @@
   <artifactId>digest-enforcer</artifactId>
   <version>1.0-SNAPSHOT</version>
   <name>Tribestream Examples :: Digest Enforcer</name>
+
   <properties>
     <tribestream-security.version>0.56</tribestream-security.version>
     <tribestream-documentation.version>1.0.0</tribestream-documentation.version>
@@ -83,7 +84,7 @@
     <dependency>
       <groupId>org.apache.httpcomponents</groupId>
       <artifactId>httpclient</artifactId>
-      <version>4.3.1</version>
+      <version>4.4</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -114,9 +115,15 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+      <groupId>org.apache.openejb</groupId>
+      <artifactId>openejb-provisionning</artifactId>
+      <version>4.7.2-TT.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
       <groupId>org.jboss.arquillian.junit</groupId>
       <artifactId>arquillian-junit-container</artifactId>
-      <version>1.1.5.Final</version>
+      <version>1.1.7.Final</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -128,7 +135,39 @@
     <dependency>
       <groupId>org.jboss.shrinkwrap.resolver</groupId>
       <artifactId>shrinkwrap-resolver-impl-maven</artifactId>
-      <version>2.1.1</version>
+      <version>2.2.0-beta-2</version>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <artifactId>aether-api</artifactId>
+          <groupId>org.eclipse.aether</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>aether-impl</artifactId>
+          <groupId>org.eclipse.aether</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>aether-spi</artifactId>
+          <groupId>org.eclipse.aether</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>aether-util</artifactId>
+          <groupId>org.eclipse.aether</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>aether-connector-basic</artifactId>
+          <groupId>org.eclipse.aether</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>aether-transport-wagon</artifactId>
+          <groupId>org.eclipse.aether</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-aether-provider</artifactId>
+      <version>3.0.5</version>
       <scope>test</scope>
     </dependency>
 
@@ -169,7 +208,7 @@
     </plugins>
   </build>
 
-<repositories>
+  <repositories>
     <repository>
       <id>tomitribe-all</id>
       <name>Tomitribe Repository</name>

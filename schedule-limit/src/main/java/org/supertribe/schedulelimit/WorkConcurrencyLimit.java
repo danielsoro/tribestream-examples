@@ -40,7 +40,7 @@ public class WorkConcurrencyLimit {
     /**
      * Thread-safe counter to tracke the number of times the @Timeout method is called
      */
-    private AtomicInteger timerCount = new AtomicInteger(0);
+    private final AtomicInteger timerCount = new AtomicInteger(0);
 
     /**
      * Starts the timer. The timer calls the @Timeout method every 500 ms.
@@ -54,13 +54,14 @@ public class WorkConcurrencyLimit {
 
     /**
      * Stops the timer and returns the number of times the @Timeout method was called
+     *
      * @return the number of times the @Timeout method was called
      */
     @GET
     @Path("stop")
     public int stop() {
         final Collection<Timer> timers = timerService.getTimers();
-        for (Timer timer : timers) {
+        for (final Timer timer : timers) {
             if ("testtimer".equals(timer.getInfo())) {
                 timer.cancel();
             }
@@ -81,7 +82,7 @@ public class WorkConcurrencyLimit {
         System.out.println("Work item " + count + " starting");
         try {
             Thread.sleep(10000);
-        } catch (InterruptedException e) {
+        } catch (final InterruptedException e) {
             // interrupted, not much we can do
         }
 

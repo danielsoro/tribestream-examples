@@ -57,7 +57,7 @@ public class LdapServerLifecycleExecuter {
         initDirectoryService(apachedsDir);
 
         server = new LdapServer();
-        int serverPort = 12389;
+        final int serverPort = 12389;
         server.setTransports(new TcpTransport(serverPort));
         server.setDirectoryService(service);
 
@@ -155,11 +155,11 @@ public class LdapServerLifecycleExecuter {
         service.sync();
     }
 
-    public void executeBeforeDeploy(@Observes BeforeDeploy event, TestClass testClass) throws Exception {
+    public void executeBeforeDeploy(@Observes final BeforeDeploy event, final TestClass testClass) throws Exception {
         startLdapServer();
     }
 
-    public void executeAfterUnDeploy(@Observes AfterUnDeploy event, TestClass testClass) throws Exception {
+    public void executeAfterUnDeploy(@Observes final AfterUnDeploy event, final TestClass testClass) throws Exception {
         stopLdapServer();
     }
 }

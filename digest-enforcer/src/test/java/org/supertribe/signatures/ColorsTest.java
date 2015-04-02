@@ -35,6 +35,7 @@ public class ColorsTest {
     /**
      * Build the web archive to test. This adds in the KeystoreInitializer class from the test sources,
      * which would otherwise be excluded.
+     *
      * @return The archive to deploy for the test
      * @throws Exception
      */
@@ -54,6 +55,7 @@ public class ColorsTest {
 
     /**
      * Simple example calling a REST endpoint with a POST, adding a SHA digest header
+     *
      * @throws Exception when an error occurs, or the test fails
      */
     @Test
@@ -70,6 +72,7 @@ public class ColorsTest {
     /**
      * Simple example demonstrating the server rejecting the request with a HTTP 400 error when an incorrect digest
      * is added
+     *
      * @throws Exception when an error occurs of the test fails
      */
     @Test
@@ -86,6 +89,7 @@ public class ColorsTest {
     /**
      * Demonstrates requesting a digest of the response payload. It is possible to request multiple digests with
      * different algorithms, each with a different priority.
+     *
      * @throws Exception when an error occurs or the test fails
      */
     @Test
@@ -100,10 +104,10 @@ public class ColorsTest {
         assertEquals("Hello", getResonseBody(response));
         final MultivaluedMap<String, Object> metadata = response.getMetadata();
         final List<Object> digestList = metadata.get("digest");
-        for (Object digest : digestList) {
+        for (final Object digest : digestList) {
             final String digestString = digest.toString();
 
-            if (! digestString.contains("=")) {
+            if (!digestString.contains("=")) {
                 throw new IllegalArgumentException("Invalid digest response header: " + digestString);
             }
 
@@ -130,11 +134,12 @@ public class ColorsTest {
 
     /**
      * Helper method to convert a response body to a string
+     *
      * @param response Response from a JAX-RS call
      * @return The entire response body as a String.
      * @throws Exception when an error occurs
      */
-    private String getResonseBody(Response response) throws Exception {
+    private String getResonseBody(final Response response) throws Exception {
         try (final InputStream is = (InputStream) response.getEntity()) {
             return IO.slurp(is);
         }
@@ -142,8 +147,9 @@ public class ColorsTest {
 
     /**
      * Helper method to create a Base64 encoded digest of the payload using the algorithm specified
+     *
      * @param algorithm the MessageDigest algorithm to use
-     * @param payload the payload to digest
+     * @param payload   the payload to digest
      * @return a base64 encoded string of the digest
      * @throws Exception when an error occurs
      */

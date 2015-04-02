@@ -20,7 +20,8 @@
       <property name="stopPort">-1</property>
       <property name="ajpPort">-1</property>
       <property name="cleanOnStartUp">true</property>
-      <property name="simpleLog">true</property> <!-- if logging.properties is provided in conf/ then it is ignored -->
+      <property name="simpleLog">true</property>
+      <!-- if logging.properties is provided in conf/ then it is ignored -->
       <property name="dir">target/tribestream-remote</property>
       <property name="appWorkingDir">target/arquillian-test-working-dir</property>
       <property name="conf">src/test/conf</property>
