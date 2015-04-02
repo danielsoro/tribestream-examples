@@ -40,19 +40,29 @@ import org.jboss.arquillian.test.spi.TestClass;
 import java.io.File;
 import java.io.InputStream;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class LdapServerLifecycleExecuter {
+
+    private static final Logger LOG = Logger.getLogger(LdapServerLifecycleExecuter.class.getName());
 
     private File apachedsDir;
 
     private DirectoryService service;
     private LdapServer server;
 
-    private void startLdapServer() throws Exception {
+    private void startLdapServer(final TestClass testClass) throws Exception {
+
+        LOG.log(Level.INFO, "Starting LDAP server on port 12389 for: " + testClass.getName());
+
         apachedsDir = new File(System.getProperty("java.io.tmpdir"), "apacheds");
         Files.deleteOnExit(apachedsDir);
-        apachedsDir.mkdirs();
+
+        if (!apachedsDir.exists() && !apachedsDir.mkdirs()) {
+            throw new Exception("Failed to create: " + apachedsDir);
+        }
 
         initDirectoryService(apachedsDir);
 
@@ -64,11 +74,14 @@ public class LdapServerLifecycleExecuter {
         server.start();
     }
 
-    private void stopLdapServer() throws Exception {
+    private void stopLdapServer(final TestClass testClass) throws Exception {
+
+        LOG.log(Level.INFO, "Stopping LDAP server on port 12389 for: " + testClass.getName());
+
         server.stop();
         service.shutdown();
 
-        // TODO: wipe apachedsDir
+        Files.delete(apachedsDir);
     }
 
     private void initSchemaPartition() throws Exception {
@@ -78,8 +91,7 @@ public class LdapServerLifecycleExecuter {
                 instanceLayout.getPartitionsDirectory(), "schema");
 
         if (schemaPartitionDirectory.exists()) {
-            System.out
-                    .println("schema partition already exists, skipping schema extraction");
+            LOG.log(Level.INFO, "schema partition already exists, skipping schema extraction");
         } else {
             final SchemaLdifExtractor extractor = new DefaultSchemaLdifExtractor(
                     instanceLayout.getPartitionsDirectory());
@@ -95,8 +107,7 @@ public class LdapServerLifecycleExecuter {
         final List<Throwable> errors = schemaManager.getErrors();
 
         if (errors.size() != 0) {
-            throw new Exception(I18n.err(I18n.ERR_317,
-                    Exceptions.printErrors(errors)));
+            throw new Exception(I18n.err(I18n.ERR_317, Exceptions.printErrors(errors)));
         }
 
         this.service.setSchemaManager(schemaManager);
@@ -156,10 +167,10 @@ public class LdapServerLifecycleExecuter {
     }
 
     public void executeBeforeDeploy(@Observes final BeforeDeploy event, final TestClass testClass) throws Exception {
-        startLdapServer();
+        startLdapServer(testClass);
     }
 
     public void executeAfterUnDeploy(@Observes final AfterUnDeploy event, final TestClass testClass) throws Exception {
-        stopLdapServer();
+        stopLdapServer(testClass);
     }
 }

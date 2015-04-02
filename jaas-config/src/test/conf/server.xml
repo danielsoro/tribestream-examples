@@ -110,12 +110,13 @@
            via a brute-force attack -->
       <Realm className="org.apache.catalina.realm.LockOutRealm">
 
-
+        <!-- This is the nested JAAS realm which will load the jaas.config file -->
         <Realm className="org.apache.catalina.realm.JAASRealm"
                appName="tribe-realm"
                userClassNames="org.apache.openejb.core.security.jaas.UserPrincipal"
                roleClassNames="org.apache.openejb.core.security.jaas.GroupPrincipal"/>
       </Realm>
+
 
       <Host name="localhost" appBase="webapps"
             unpackWARs="true" autoDeploy="true">
