@@ -24,6 +24,7 @@ public class RateLimitWindowTest {
 
     /**
      * Builds the .war file for Arquillian to deploy to Tribestream to test
+     *
      * @return A .war file build in the same way as if a Maven build had been run on the project.
      * @throws Exception if an error occurs building or deploying the .war archive
      */
@@ -40,6 +41,7 @@ public class RateLimitWindowTest {
     /**
      * Calls the @Timeout method 20 times via a timer. The method allows three invocations per minute, so we
      * check the number of calls that have been successful after 10 seconds.
+     *
      * @throws Exception on error or test failure
      */
     @Test

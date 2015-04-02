@@ -37,6 +37,7 @@ public class ColorsTest {
     /**
      * Build the web archive to test. This adds in the KeystoreInitializer class from the test sources,
      * which would otherwise be excluded.
+     *
      * @return The archive to deploy for the test
      * @throws Exception
      */
@@ -57,12 +58,13 @@ public class ColorsTest {
 
     /**
      * Tests accessing a signatures protected method with a GET request
+     *
      * @throws Exception when test fails or an error occurs
      */
     @Test
     public void success() throws Exception {
 
-         final String actual = WebClient.create(webapp.toExternalForm())
+        final String actual = WebClient.create(webapp.toExternalForm())
                 .path("api/colors")
                 .path("preferred")
                 .header("Authorization", sign("GET", "/colors/api/colors/preferred"))
@@ -73,6 +75,7 @@ public class ColorsTest {
 
     /**
      * Tests accessing a signatures protected method with a POST request
+     *
      * @throws Exception when test fails or an error occurs
      */
     @Test
@@ -88,6 +91,7 @@ public class ColorsTest {
 
     /**
      * Tests accessing a signatures protected method with a PUT request
+     *
      * @throws Exception when test fails or an error occurs
      */
     @Test
@@ -103,6 +107,7 @@ public class ColorsTest {
 
     /**
      * Tests accessing a signatures protected method with a key that doesn't not have access to the resource
+     *
      * @throws Exception when test fails or an error occurs
      */
     @Test
@@ -117,6 +122,7 @@ public class ColorsTest {
 
     /**
      * Tests accessing a signatures protected method with a GET request to a resource that requires a role
+     *
      * @throws Exception when test fails or an error occurs
      */
     @Test
@@ -134,7 +140,7 @@ public class ColorsTest {
      * from the KeystoreInitializer
      *
      * @param method HTTP method for the request (e.g. GET, POST, PUT etc)
-     * @param uri The URI of the request, e.g. "/colors/api/colors/preferred"
+     * @param uri    The URI of the request, e.g. "/colors/api/colors/preferred"
      * @return The signature to set on the Authorization header.
      * @throws Exception
      */

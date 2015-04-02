@@ -39,7 +39,7 @@ public class WorkRateLimit {
     /**
      * Thread-safe counter to tracke the number of times the @Timeout method is called
      */
-    private AtomicInteger timerCount = new AtomicInteger(0);
+    private final AtomicInteger timerCount = new AtomicInteger(0);
 
     /**
      * Starts the timer. The timer calls the @Timeout method every 500 ms.
@@ -53,13 +53,14 @@ public class WorkRateLimit {
 
     /**
      * Stops the timer and returns the number of times the @Timeout method was called
+     *
      * @return the number of times the @Timeout method was called
      */
     @GET
     @Path("stop")
     public int stop() {
         final Collection<Timer> timers = timerService.getTimers();
-        for (Timer timer : timers) {
+        for (final Timer timer : timers) {
             if ("testtimer".equals(timer.getInfo())) {
                 timer.cancel();
             }

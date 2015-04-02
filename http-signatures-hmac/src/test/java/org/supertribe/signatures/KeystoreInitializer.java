@@ -35,9 +35,9 @@ public class KeystoreInitializer {
      * Initializes the keystore at ${TRIBESTREAM_HOME}/conf/test.jks, creating a keystore (with this is sensible ;-) as
      * the keystore password), with a secret key of "this is supposed to be the shared secret between client and server.
      * Not supposed to be in a constant." with an alias of "support".
-     *
+     * <p/>
      * This is stored in the keystore with using the HmacSHA256 algorithm.
-     *
+     * <p/>
      * This method is a @PostConstruct on a @Singleton @Startup EJB so the keystore is created as soon as the
      * application starts up. This works great for a test, but is not the recommended approach in production.
      *

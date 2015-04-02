@@ -39,6 +39,7 @@ public class ColorsTest {
     /**
      * Build the web archive to test. This adds in the KeystoreInitializer class from the test sources,
      * which would otherwise be excluded.
+     *
      * @return The archive to deploy for the test
      * @throws Exception
      */
@@ -57,20 +58,21 @@ public class ColorsTest {
     @ArquillianResource
     private URL webapp;
 
-    private Date today = new Date(); // default window is 1 hour
-    private String stringToday = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.US).format(today);
+    private final Date today = new Date(); // default window is 1 hour
+    private final String stringToday = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.US).format(today);
 
-    private Date oneHourAgo = new Date(System.currentTimeMillis() - TimeUnit.HOURS.toMillis(2));
-    private String stringOneHourAgo = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.US).format(oneHourAgo);
+    private final Date oneHourAgo = new Date(System.currentTimeMillis() - TimeUnit.HOURS.toMillis(2));
+    private final String stringOneHourAgo = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.US).format(oneHourAgo);
 
     /**
      * Tests accessing a signatures protected method with a GET request
+     *
      * @throws Exception when test fails or an error occurs
      */
     @Test
     public void success() throws Exception {
 
-         final String actual = WebClient.create(webapp.toExternalForm())
+        final String actual = WebClient.create(webapp.toExternalForm())
                 .path("api/colors")
                 .path("preferred")
                 .header("Authorization", sign("GET", "/colors/api/colors/preferred", stringToday))
@@ -82,6 +84,7 @@ public class ColorsTest {
 
     /**
      * Tests accessing a signatures protected method with a GET request with an invalid date
+     *
      * @throws Exception when test fails or an error occurs
      */
     @Test
@@ -102,7 +105,7 @@ public class ColorsTest {
      * from the KeystoreInitializer
      *
      * @param method HTTP method for the request (e.g. GET, POST, PUT etc)
-     * @param uri The URI of the request, e.g. "/colors/api/colors/preferred"
+     * @param uri    The URI of the request, e.g. "/colors/api/colors/preferred"
      * @return The signature to set on the Authorization header.
      * @throws Exception
      */

@@ -78,7 +78,7 @@ public class ConcurrentLimitWindowTest {
         if (expectedBody != null) {
             try (final InputStream is = InputStream.class.cast(response.getEntity())) {
                 final String body = IO.slurp(is);
-                if (! expectedBody.equals(body)) {
+                if (!expectedBody.equals(body)) {
                     return false;
                 }
             }
@@ -100,14 +100,14 @@ public class ConcurrentLimitWindowTest {
         final AtomicInteger callsSucceeded = new AtomicInteger(0);
         final AtomicInteger callsMade = new AtomicInteger(0);
 
-        Runnable runnable = new Runnable() {
+        final Runnable runnable = new Runnable() {
             @Override
             public void run() {
                 try {
                     if (call("hello", 200, "hello")) {
                         callsSucceeded.incrementAndGet();
                     }
-                } catch (Exception e) {
+                } catch (final Exception e) {
                     // call failed - don't increment the counter
                 }
 

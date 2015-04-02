@@ -104,8 +104,8 @@ public class ConcurrentLimitWindowTest {
         final AtomicInteger user2CallsSucceeded = new AtomicInteger(0);
         final AtomicInteger user2CallsMade = new AtomicInteger(0);
 
-        Runnable user1Runnable = getRunnable("user1", "user1", user1CallsSucceeded, user1CallsMade);
-        Runnable user2Runnable = getRunnable("user2", "user2", user2CallsSucceeded, user2CallsMade);
+        final Runnable user1Runnable = getRunnable("user1", "user1", user1CallsSucceeded, user1CallsMade);
+        final Runnable user2Runnable = getRunnable("user2", "user2", user2CallsSucceeded, user2CallsMade);
 
         final ExecutorService threadPool = Executors.newFixedThreadPool(8);
         for (int i = 0; i < 4; i++) {
@@ -132,26 +132,27 @@ public class ConcurrentLimitWindowTest {
 
     /**
      * Convenience method to create a task to call the endpoint
-     * @param username Username to use to call the endpoint
-     * @param password Password to use to call the endpoint
+     *
+     * @param username       Username to use to call the endpoint
+     * @param password       Password to use to call the endpoint
      * @param callsSucceeded counter for successful calls
-     * @param callsMade counter for all calls
+     * @param callsMade      counter for all calls
      * @return a runnable that can be executed by the threadpool
      */
     private Runnable getRunnable(final String username, final String password, final AtomicInteger callsSucceeded, final AtomicInteger callsMade) {
         return new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        if (call(username, password, "hello", 200, "hello")) {
-                            callsSucceeded.incrementAndGet();
-                        }
-                    } catch (Exception e) {
-                        // call failed - don't increment the counter
+            @Override
+            public void run() {
+                try {
+                    if (call(username, password, "hello", 200, "hello")) {
+                        callsSucceeded.incrementAndGet();
                     }
-
-                    callsMade.incrementAndGet();
+                } catch (final Exception e) {
+                    // call failed - don't increment the counter
                 }
-            };
+
+                callsMade.incrementAndGet();
+            }
+        };
     }
 }

@@ -42,11 +42,12 @@ public class Colors {
     /**
      * A simple POST resource with an application-wide concurrency limit. This allows 2 simultaneous calls. Any more
      * concurrent calls will return with a HTTP 423 (resource locked) status code.
-     *
+     * <p/>
      * This method has had a sleep() call deliberately added to it to slow it down, this ensuring the multithreaded test
      * invokes this method 4 times concurrently.
-     *
+     * <p/>
      * This simple method returns the same string as it is given, effectively echoing the payload to the response.
+     *
      * @param payload The payload POSTed, as a String
      * @return the payload from the POST, echoed back out
      */
@@ -59,7 +60,7 @@ public class Colors {
         // with 4 threads concurrently
         try {
             Thread.sleep(500);
-        } catch (InterruptedException e) {
+        } catch (final InterruptedException e) {
             // interupted, ignore
         }
 

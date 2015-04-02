@@ -29,6 +29,7 @@ public class UsersTest {
     /**
      * Build the web archive to test. This adds in the KeystoreInitializer class from the test sources,
      * which would otherwise be excluded.
+     *
      * @return The archive to deploy for the test
      * @throws Exception
      */
@@ -48,11 +49,12 @@ public class UsersTest {
 
     /**
      * Test logging in and calling the service as an LDAP user
+     *
      * @throws Exception when an error occurs or the test fails
      */
     @Test
     public void successJBloggs() throws Exception {
-         final String actual = WebClient.create(webapp.toExternalForm(), "jbloggs", "test", null)
+        final String actual = WebClient.create(webapp.toExternalForm(), "jbloggs", "test", null)
                 .path("api/users")
                 .path("whoami")
                 .get(String.class);
@@ -62,11 +64,12 @@ public class UsersTest {
 
     /**
      * Test logging in with an LDAP user with the wrong password. This should return a 401.
+     *
      * @throws Exception when an error occurs or the test fails
      */
     @Test
     public void failJBloggs() throws Exception {
-         final Response response = WebClient.create(webapp.toExternalForm(), "jbloggs", "badpassword", null)
+        final Response response = WebClient.create(webapp.toExternalForm(), "jbloggs", "badpassword", null)
                 .path("api/users")
                 .path("whoami")
                 .get();
@@ -76,11 +79,12 @@ public class UsersTest {
 
     /**
      * Test logging in and calling the service as a Tomcat user
+     *
      * @throws Exception when an error occurs or the test fails
      */
     @Test
     public void successSupport() throws Exception {
-         final String actual = WebClient.create(webapp.toExternalForm(), "support", "support", null)
+        final String actual = WebClient.create(webapp.toExternalForm(), "support", "support", null)
                 .path("api/users")
                 .path("whoami")
                 .get(String.class);
@@ -90,11 +94,12 @@ public class UsersTest {
 
     /**
      * Test logging in with a Tomcat user with the wrong password. This should return a 401.
+     *
      * @throws Exception when an error occurs or the test fails
      */
     @Test
     public void failSupport() throws Exception {
-         final Response response = WebClient.create(webapp.toExternalForm(), "support", "badpassword", null)
+        final Response response = WebClient.create(webapp.toExternalForm(), "support", "badpassword", null)
                 .path("api/users")
                 .path("whoami")
                 .get();
