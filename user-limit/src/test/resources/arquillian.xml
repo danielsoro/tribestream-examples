@@ -1,0 +1,33 @@
+<!--
+  ~ Tomitribe Confidential
+  ~
+  ~ Copyright(c) Tomitribe Corporation. 2014
+  ~
+  ~ The source code for this program is not published or otherwise divested
+  ~ of its trade secrets, irrespective of what has been deposited with the
+  ~ U.S. Copyright Office.
+  -->
+<arquillian>
+  <container qualifier="tomee" default="true">
+    <configuration>
+      <property name="groupId">com.tomitribe.tribestream</property>
+      <property name="artifactId">tribestream</property>
+      <property name="version">0.60-alpha</property>
+      <property name="classifier"/>
+      <property name="removeUnusedWebapps">true</property>
+      <property name="httpsPort">-1</property>
+      <property name="httpPort">-1</property>
+      <property name="stopPort">-1</property>
+      <property name="ajpPort">-1</property>
+      <property name="cleanOnStartUp">true</property>
+      <property name="simpleLog">true</property>
+      <!-- if logging.properties is provided in conf/ then it is ignored -->
+      <property name="dir">target/tribestream-remote</property>
+      <property name="appWorkingDir">target/arquillian-test-working-dir</property>
+      <property name="conf">src/test/conf</property>
+      <property name="properties">
+        openejb.deploymentId.format = {appId}/{ejbJarId}/{ejbName}
+      </property>
+    </configuration>
+  </container>
+</arquillian>

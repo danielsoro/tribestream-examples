@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+  ~ Tomitribe Confidential
+  ~
+  ~ Copyright(c) Tomitribe Corporation. 2014
+  ~
+  ~ The source code for this program is not published or otherwise divested
+  ~ of its trade secrets, irrespective of what has been deposited with the
+  ~ U.S. Copyright Office.
+  -->
+<tomcat-users>
+  <role rolename="tribe"/>
+  <user username="user1" password="user1" roles="tribe"/>
+  <user username="user2" password="user2" roles="tribe"/>
+</tomcat-users>
+
