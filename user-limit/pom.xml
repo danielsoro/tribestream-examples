@@ -13,7 +13,7 @@
 
   <groupId>com.tomitribe.tribestream.examples</groupId>
   <artifactId>user-limit</artifactId>
-  <version>0.57</version>
+  <version>0.60-SNAPSHOT</version>
   <name>Tribestream Examples :: User Limit</name>
 
   <properties>

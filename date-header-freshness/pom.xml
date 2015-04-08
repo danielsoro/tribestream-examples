@@ -13,7 +13,7 @@
 
   <groupId>com.tomitribe.tribestream.examples</groupId>
   <artifactId>date-header-freshness</artifactId>
-  <version>0.57</version>
+  <version>0.60-SNAPSHOT</version>
   <name>Tribestream Examples :: Date Header Freshness</name>
 
   <properties>
