@@ -20,6 +20,13 @@
   <packaging>pom</packaging>
   <name>Tribestream Examples</name>
 
+  <scm>
+    <connection>scm:git:git@github.com:tomitribe/tribestream-examples.git</connection>
+    <url>scm:git:git@github.com:tomitribe/tribestream-examples.git</url>
+    <developerConnection>scm:git:git@github.com:tomitribe/tribestream-examples.git</developerConnection>
+    <tag>HEAD</tag>
+  </scm>
+
   <modules>
     <module>date-header-freshness</module>
     <module>http-signatures-hmac</module>
