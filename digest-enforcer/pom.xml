@@ -15,7 +15,7 @@
 
   <groupId>com.tomitribe.tribestream.examples</groupId>
   <artifactId>digest-enforcer</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>0.57-SNAPSHOT</version>
   <name>Tribestream Examples :: Digest Enforcer</name>
 
   <properties>
@@ -103,7 +103,7 @@
     <dependency>
       <groupId>com.tomitribe.tribestream</groupId>
       <artifactId>tribestream</artifactId>
-      <version>0.60-alpha</version>
+      <version>0.57</version>
       <scope>provided</scope>
       <type>zip</type>
     </dependency>
