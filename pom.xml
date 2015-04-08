@@ -20,8 +20,8 @@
     <version>5</version>
   </parent>
 
-  <groupId>com.tomitribe.tribestream.examples</groupId>
-  <artifactId>examples-parent</artifactId>
+  <groupId>com.tomitribe.tribestream</groupId>
+  <artifactId>tribestream-examples</artifactId>
   <version>0.57-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Tribestream Examples</name>
@@ -43,6 +43,33 @@
     <module>digest-enforcer</module>
     <module>jaas-config</module>
   </modules>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.3</version>
+        <inherited>false</inherited>
+        <configuration>
+          <descriptors>
+            <descriptor>src.xml</descriptor>
+          </descriptors>
+          <tarLongFileMode>gnu</tarLongFileMode>
+          <finalName>tribestream-examples-${project.version}</finalName>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 
   <repositories>
     <repository>
