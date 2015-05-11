@@ -39,6 +39,7 @@
 
   <modules>
     <module>date-header-freshness</module>
+    <module>basic-auth</module>
     <module>http-signatures-hmac</module>
     <module>http-signatures-username-retriever</module>
     <module>application-limit</module>
