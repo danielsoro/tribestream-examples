@@ -19,12 +19,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.tomitribe.tribestream.examples</groupId>
-  <artifactId>date-header-freshness</artifactId>
+  <artifactId>basic-auth</artifactId>
   <version>0.61-SNAPSHOT</version>
-  <name>Tribestream Examples :: Date Header Freshness</name>
+  <name>Tribestream Examples :: Basic Auth</name>
 
   <properties>
-    <tribestream-security.version>0.56</tribestream-security.version>
     <tribestream-documentation.version>1.0.0</tribestream-documentation.version>
   </properties>
   <packaging>war</packaging>
@@ -38,55 +37,11 @@
     </dependency>
 
     <dependency>
-      <groupId>com.tomitribe.tribestream</groupId>
-      <artifactId>tribestream-security-api</artifactId>
-      <version>${tribestream-security.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.tomitribe.tribestream</groupId>
-      <artifactId>tribestream-security-core</artifactId>
-      <version>${tribestream-security.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.tomitribe.tribestream</groupId>
-      <artifactId>tribestream-security-signatures-api</artifactId>
-      <version>${tribestream-security.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.tomitribe.tribestream</groupId>
-      <artifactId>tribestream-security-signatures-core</artifactId>
-      <version>${tribestream-security.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.tomitribe.tribestream</groupId>
-      <artifactId>tribestream-security-digest-api</artifactId>
-      <version>${tribestream-security.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.tomitribe.tribestream</groupId>
-      <artifactId>tribestream-security-digest-core</artifactId>
-      <version>${tribestream-security.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.tomitribe.tribestream</groupId>
-      <artifactId>tribestream-security-date</artifactId>
-      <version>${tribestream-security.version}</version>
-      <scope>provided</scope>
-    </dependency>
-
-    <dependency>
       <groupId>com.tomitribe.tools</groupId>
       <artifactId>service-documentation-api</artifactId>
       <version>${tribestream-documentation.version}</version>
       <scope>provided</scope>
     </dependency>
-
     <dependency>
       <groupId>org.apache.httpcomponents</groupId>
       <artifactId>httpclient</artifactId>
