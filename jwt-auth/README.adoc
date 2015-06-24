@@ -55,7 +55,7 @@ Add a +META-INF/context.xml+ file to the application and include the following v
       The order is very important here. The security must always be the first one.
       Then, the rewrite feature if necessary and finally the Proxy one, which is always the latest one.
       -->
-      <Valve className="org.apache.tomee.catalina.valve.LazyValve" delegateClassName="com.tomitribe.tribestream.proxy.auth.TokenValve"/>
+      <Valve className="com.tomitribe.tribestream.proxy.auth.TokenValve"/>
     </Context>
 ----
 
