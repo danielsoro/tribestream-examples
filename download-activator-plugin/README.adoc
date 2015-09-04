@@ -1,0 +1,51 @@
+= Download Activator Plugin
+
+This Plugin allows put a new release of the artifact available on download page automatically during release process.
+The plugin is executed by default in deploy phase.
+
+== Configuring user and password of the endpoint
+[source,xml]
+----
+<properties>
+    <tomitribe.download.activator.username>admin</tomitribe.download.activator.username>
+    <tomitribe.download.activator.password>admin</tomitribe.download.activator.password>
+</properties>
+----
+
+You can configure in your setting.xml in `<servers>` (The default id for server is: `tomitribe.download.activator.serverid`) section like this:
+[source,xml]
+----
+<servers>
+    <server>
+        <id>tomitribe.download.activator.serverid</id>
+        <username>USER</username>
+        <password>PASSWORD</password>
+    </server>
+</servers>
+----
+
+Add the plugin in your pom.xml Remember that plugin always will activate artifact with the same version of the ${project.version}.
+[source,xml]
+----
+ <build>
+    <plugins>
+      <plugin>
+        <groupId>com.tomitribe</groupId>
+        <artifactId>download-activator-maven-plugin</artifactId>
+        <version>1.0.0</version>
+        <configuration>
+          <host>http://www.tomitribe.com/downloads</host>
+          <artifacts>
+            <artifact>
+              <groupId>com.tomitribe.tribestream</groupId>
+              <artifactId>tribestream-examples</artifactId>
+              <group>tribestream</group>
+              <classifier>src</classifier>
+              <type>zip</type>
+            </artifact>
+          </artifacts>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+----

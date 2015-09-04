@@ -48,6 +48,7 @@
     <module>schedule-limit</module>
     <module>digest-enforcer</module>
     <module>jaas-config</module>
+    <module>download-activator-plugin</module>
   </modules>
 
   <build>
@@ -84,6 +85,14 @@
       <url>http://repository.tomitribe.com/content/groups/tomitribe/</url>
     </repository>
   </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>tomitribe-all</id>
+      <name>Tomitribe Repository</name>
+      <url>http://repository.tomitribe.com/content/groups/tomitribe/</url>
+    </pluginRepository>
+  </pluginRepositories>
 
   <distributionManagement>
     <repository>

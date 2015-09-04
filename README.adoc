@@ -27,4 +27,6 @@ Please see the README for each example for more details.
 | Demonstrates rate and concurrency limiting on a resource invoked by a timer
 | link:jaas-config/README{outfilesuffix}[JAAS Config]
 | Shows how to configure JAAS for LDAP and tomcat-users.xml
+| link:download-activator-plugin/README{outfilesuffix}[Download Activator Plugin]
+| Show how to configure download activator plugin in project
 |====
