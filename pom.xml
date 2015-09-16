@@ -31,9 +31,9 @@
   <name>Tribestream Examples</name>
 
   <scm>
-    <connection>scm:git:git@github.com:tomitribe/tribestream-examples.git</connection>
-    <url>scm:git:git@github.com:tomitribe/tribestream-examples.git</url>
-    <developerConnection>scm:git:git@github.com:tomitribe/tribestream-examples.git</developerConnection>
+    <connection>scm:git:git@github.com:danielsoro/tribestream-examples.git</connection>
+    <url>scm:git:git@github.com:danielsoro/tribestream-examples.git</url>
+    <developerConnection>scm:git:git@github.com:danielsoro/tribestream-examples.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
 
