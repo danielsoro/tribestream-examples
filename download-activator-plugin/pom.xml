@@ -47,7 +47,7 @@
         <artifactId>download-activator-maven-plugin</artifactId>
         <version>1.0.0</version>
         <configuration>
-          <host>http://tomitribe.com/downloads</host>
+          <host>http://localhost:8080/download</host>
           <artifacts>
             <artifact>
               <groupId>com.tomitribe.tribestream</groupId>
